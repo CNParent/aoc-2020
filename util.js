@@ -9,3 +9,20 @@ let getFile = (url) => {
         req.send();
     });
 }
+
+let loadScript = (url) => {
+    return new Promise(resolve => {
+        if(document.querySelectorAll(`script[src="${url}"]`).length != 0) {
+            resolve();
+            return;
+        }
+
+        let element = document.createElement('script');
+        element.src = url;
+        element.onload = () => {
+            resolve();
+        };
+    
+        document.querySelector('body').appendChild(element);
+    });
+}

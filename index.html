@@ -8,17 +8,19 @@
 </head>
 <body>
     <p id="output">Select a day from the list!</p>
-    <a data-exec="day1_1" href="javascript:;">day one (part one)</a>
-    <a data-exec="day1_2" href="javascript:;">day one (part two)</a>
+    <ul>
+        <li><a data-exec="day1_1" href="javascript:;">day one (part one)</a></li>
+        <li><a data-exec="day1_2" href="javascript:;">day one (part two)</a></li>
+        <li><a data-exec="day2_1" href="javascript:;">day two (part one)</a></li>
+        <li><a data-exec="day2_2" href="javascript:;">day two (part two)</a></li>
+    </ul>
     <script>
         let scripts = {};
         let terminal = document.querySelector('#output');
         document.querySelectorAll('[data-exec]')
-            .forEach(x => {
-                let script = document.createElement('script');
-                script.src = `${x.dataset.exec}.js`;
-                script.onload = () => x.addEventListener('click', scripts[x.dataset.exec]);
-                document.querySelector('body').append(script);
+            .forEach(async x => {
+                await loadScript(`${x.dataset.exec}.js`);
+                x.addEventListener('click', scripts[x.dataset.exec]);
             });
     </script>
 </body>
