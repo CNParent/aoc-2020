@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Advent of Code 2020</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="util.js"></script>
+</head>
+<body>
+    <p id="output">Select a day from the list!</p>
+    <a data-exec="day1_1" href="javascript:;">day one (part one)</a>
+    <script>
+        let scripts = {};
+        let terminal = document.querySelector('#output');
+        document.querySelectorAll('[data-exec]')
+            .forEach(x => {
+                let script = document.createElement('script');
+                script.src = `${x.dataset.exec}.js`;
+                script.onload = () => x.addEventListener('click', scripts[x.dataset.exec]);
+                document.querySelector('body').append(script);
+            });
+    </script>
+</body>
+</html>
