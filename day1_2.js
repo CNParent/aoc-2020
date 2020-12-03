@@ -4,7 +4,7 @@ scripts.day1_2 = async () => {
     let data = await getFile('day1_1_input.txt');
     data = data.map(Number);
     let solver = new Solver(data);
-    let results = solver.Compose(2020, 3);
+    let results = solver.compose(2020, 3);
     terminal.textContent = `Matches found:
         ${results.map(x => `data[${x.index}] = ${x.value}`).reduce((a,b) => `${a}\r\n${b}`)}
 
