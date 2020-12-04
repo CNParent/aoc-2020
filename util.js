@@ -4,7 +4,7 @@ let getFile = (url) => {
         req.open('get', url);
         req.setRequestHeader('accept', 'text/plain');
         req.onloadend = () => {
-            resolve(req.response.split('\r\n'));
+            resolve(req.response);
         };
         req.send();
     });

@@ -2,7 +2,7 @@ scripts.day1_2 = async () => {
     await loadScript('Solver.js');
 
     let data = await getFile('day1_1_input.txt');
-    data = data.map(Number);
+    data = data.split('\r\n').map(Number);
     let solver = new Solver(data);
     let results = solver.compose(2020, 3);
     terminal.textContent = `Matches found:
