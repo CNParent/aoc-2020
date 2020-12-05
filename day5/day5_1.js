@@ -4,7 +4,7 @@ scripts.day5_1 = async () => {
     let data = (await getFile('day5/day5_1_input.txt'))
         .split('\r\n')
         .map(x => binarySearch(space(), x))
-        .map(x => x.y * 8 + x.x);
+        .map(x => x.id);
 
     terminal.textContent = `Maximum seat id is ${Math.max(...data)}`;
 }

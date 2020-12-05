@@ -7,7 +7,7 @@ let binarySearch = (space = { x: { from: 0, to: 1 }, y: { from: 0, to: 1} }, com
     else if (command[0] == 'L') space.x.to -= dx;
 
     if(space.x.from == space.x.to && space.y.from == space.y.to) 
-        return { x: space.x.from, y: space.y.to };
+        return { x: space.x.from, y: space.y.to, id: space.y.from * 8 + space.x.from };
 
     return binarySearch(space, command.substring(1));
 }
