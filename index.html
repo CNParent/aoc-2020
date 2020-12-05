@@ -9,21 +9,21 @@
 <body>
     <p id="output">Select a day from the list!</p>
     <ul>
-        <li><a data-exec="day1_1" href="javascript:;">day one (part one)</a></li>
-        <li><a data-exec="day1_2" href="javascript:;">day one (part two)</a></li>
-        <li><a data-exec="day2_1" href="javascript:;">day two (part one)</a></li>
-        <li><a data-exec="day2_2" href="javascript:;">day two (part two)</a></li>
-        <li><a data-exec="day3_1" href="javascript:;">day three (part one)</a></li>
-        <li><a data-exec="day3_2" href="javascript:;">day three (part two)</a></li>
-        <li><a data-exec="day4_1" href="javascript:;">day four (part one)</a></li>
-        <li><a data-exec="day4_2" href="javascript:;">day four (part two)</a></li>
+        <li><a data-dir="day1" data-exec="day1_1" href="javascript:;">day one (part one)</a></li>
+        <li><a data-dir="day1" data-exec="day1_2" href="javascript:;">day one (part two)</a></li>
+        <li><a data-dir="day2" data-exec="day2_1" href="javascript:;">day two (part one)</a></li>
+        <li><a data-dir="day2" data-exec="day2_2" href="javascript:;">day two (part two)</a></li>
+        <li><a data-dir="day3" data-exec="day3_1" href="javascript:;">day three (part one)</a></li>
+        <li><a data-dir="day3" data-exec="day3_2" href="javascript:;">day three (part two)</a></li>
+        <li><a data-dir="day4" data-exec="day4_1" href="javascript:;">day four (part one)</a></li>
+        <li><a data-dir="day4" data-exec="day4_2" href="javascript:;">day four (part two)</a></li>
     </ul>
     <script>
         let scripts = {};
         let terminal = document.querySelector('#output');
         document.querySelectorAll('[data-exec]')
             .forEach(async x => {
-                await loadScript(`${x.dataset.exec}.js`);
+                await loadScript(`${x.dataset.dir}/${x.dataset.exec}.js`);
                 x.addEventListener('click', scripts[x.dataset.exec]);
             });
     </script>

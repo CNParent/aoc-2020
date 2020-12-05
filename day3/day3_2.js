@@ -1,6 +1,6 @@
 scripts.day3_2 = async () => {
     await loadScript('WrappingGrid.js');
-    let data = (await getFile('day3_1_input.txt')).split('\r\n').map(x => x.split(''));
+    let data = (await getFile('day3/day3_1_input.txt')).split('\r\n').map(x => x.split(''));
     let grid = new WrappingGrid(data);
     let collisions = []; 
     collisions.push(grid.getCollisions({ dx: 1, dy: 1 }));
