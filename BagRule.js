@@ -12,6 +12,11 @@ class BagRule {
         }
     }
 
+    contains(name = '') {
+        if(this.name == name) return true;
+        return this.bags.some(x => x.rule.contains(name));
+    }
+
     contents() {
         if(this.bags.length == 0) return 1;
         return this.bags.map(x => x.rule.contents() * x.count).reduce((a,b) => a + b , 0) + 1;
