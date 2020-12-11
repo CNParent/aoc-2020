@@ -74,15 +74,12 @@ class Seating {
     stabilize() {
         let previous = this.occupied();
         let current = 0;
-        let iterations = 1000000;
-        while(iterations > 0) {
+        while(true) {
             this.round();
-            console.log(this.data);
             current = this.occupied();
             if (current == previous) return current;
 
             previous = current;
-            iterations--;
         }
     }
 }
