@@ -15,10 +15,6 @@ scripts.day21_2 = async () => {
         let ingredients = new Set(foundIn.reduce((a,b) => a.concat(b.ingredients), []));
         allergen.couldBe = [...ingredients].filter(ingredient => foundIn.every(recipe => recipe.ingredients.includes(ingredient)))
     });
-
-    let ingredients = recipes.reduce((a,b) => a.concat(b.ingredients), []);
-    let potentialAllergens = [...new Set(allergens.reduce((a,b) => a.concat(b.couldBe), []))];
-    let notAllergens = ingredients.filter(x => !potentialAllergens.includes(x));
     
     while (true) {
         let next = allergens.find(x => x.couldBe.length == 1 && !x.is);
