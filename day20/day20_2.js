@@ -1,6 +1,3 @@
-
-loadScript('MonsterRadar.js');
-
 scripts.day20_2 = async () => {
     await loadScript('MonsterRadar.js');
     await loadScript('Photo.js');
